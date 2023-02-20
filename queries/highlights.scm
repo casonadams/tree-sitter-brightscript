@@ -1,3 +1,11 @@
+; good ref file:
+; https://github.com/nvim-treesitter/nvim-treesitter/blob/master/queries/python/highlights.scm
+
+["(" ")"] @punctuation.bracket
+
+; TODO: support Object, and arrays
+; ["(" ")" "[" "]" "{" "}"] @punctuation.bracket
+
 [
   "print"
   "if"
@@ -6,12 +14,16 @@
   "else if"
   "end if"
   "return"
+  "exit"
+  "stop"
 ] @keyword
 
 [
-  "as"
-  "As"
-] @constant
+  "for"
+  "For"
+  "End For"
+  "end for"
+] @repeat
 
 [
   "sub"
@@ -24,7 +36,38 @@
   "End Function"
 ] @function
 
-(invalid) @constant
+[
+  "bool"
+  "Bool"
+  "boolean"
+  "Boolean"
+  "double"
+  "Double"
+  "dynamic"
+  "Dynamic"
+  "float"
+  "Float"
+  "integer"
+  "Integer"
+  "interface"
+  "Interface"
+  "long"
+  "Long"
+  "longInteger"
+  "LongInteger"
+  "object"
+  "Object"
+  "step"
+  "Step"
+  "string"
+  "String"
+  "to"
+  "To"
+] @type.builtin
+
+
+(as) @constant
+(invalid_literal) @constant
 (comment) @comment
 (binary_expression) @operator
 (integer_literal) @number

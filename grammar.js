@@ -5,6 +5,7 @@ module.exports = grammar({
     [$.assignment_statement, $.expression],
     [$.assignment_statement, $.binary_expression],
     [$.statement, $.binary_expression],
+    [$.unary_expression, $.binary_expression],
     [$.return_statement, $.binary_expression],
   ],
 
@@ -24,7 +25,7 @@ module.exports = grammar({
       '(',
       optional($.parameters),
       ')',
-      optional(seq(choice("as", "As"), $.type)),
+      optional(seq($.as, $.type)),
       $.newline,
       repeat($.statement),
       optional($.return_statement),
@@ -38,7 +39,7 @@ module.exports = grammar({
       '(',
       optional($.parameters),
       ')',
-      optional(seq(choice("as", "As"), $.type)),
+      optional(seq($.as, $.type)),
       $.newline,
       repeat($.statement),
       optional($.return_statement),
@@ -50,21 +51,55 @@ module.exports = grammar({
 
     parameter: $ => seq(
       $.identifier,
-      optional(seq(choice("as", "As"), $.type))
+      optional(seq($.as, $.type))
     ),
 
     type: $ => choice(
-      'integer',
-      'float',
-      'string',
-      'boolean',
-      'dynamic'
+      "bool",
+      "Bool",
+      "boolean",
+      "Boolean",
+      "double",
+      "Double",
+      "dynamic",
+      "Dynamic",
+      "float",
+      "Float",
+      "integer",
+      "Integer",
+      "interface",
+      "Interface",
+      "long",
+      "Long",
+      "longInteger",
+      "LongInteger",
+      "object",
+      "Object",
+      "string",
+      "String",
+    ),
+
+    invalid_literal: $ => choice(
+      "Invalid",
+      "invalid",
+    ),
+
+    keyword_literal: $ => choice(
+      "exit",
+      "stop",
+      "STOP",
+    ),
+
+    as: $ => choice(
+      "As",
+      "as"
     ),
 
     // Statements
     statement: $ => choice(
       $.print_statement,
       $.if_statement,
+      $.loop_statement,
       $.assignment_statement,
       $.expression
     ),
@@ -101,6 +136,22 @@ module.exports = grammar({
       repeat($.statement)
     ),
 
+    loop_statement: $ => choice(
+      $.for_loop,
+    ),
+
+    for_loop: $ => seq(
+      choice('for', 'For'),
+      $.identifier,
+      '=',
+      $.expression,
+      choice('to', 'To'),
+      $.expression,
+      optional(seq(choice('step', 'Step'), $.expression)),
+      repeat($.statement),
+      choice('end for', 'End For'),
+    ),
+
     assignment_statement: $ => seq(
       $.identifier,
       '=',
@@ -112,6 +163,7 @@ module.exports = grammar({
       $.identifier,
       $.literal,
       $.binary_expression,
+      $.keyword_literal,
       $.unary_expression
     ),
 
@@ -141,7 +193,8 @@ module.exports = grammar({
       $.integer_literal,
       $.float_literal,
       $.string_literal,
-      $.boolean_literal
+      $.boolean_literal,
+      $.invalid_literal
     ),
 
     return_statement: $ => seq(
@@ -159,8 +212,11 @@ module.exports = grammar({
     boolean_literal: $ => choice('true', 'false'),
     identifier: $ => /[A-Za-z_]+/,
     newline: $ => /\r?\n/,
-    invalid: $ => "invalid",
-    comment: $ => token(/'.*/),
+    comment: $ => choice(
+      token(/'.*/),
+      token(/rem.*/),
+      token(/REM.*/)
+    ),
   }
 });
 

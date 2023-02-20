@@ -1,5 +1,10 @@
 [
   {
+    "type": "as",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "assignment_statement",
     "named": true,
     "fields": {},
@@ -35,6 +40,11 @@
   },
   {
     "type": "boolean_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "comment",
     "named": true,
     "fields": {}
   },
@@ -101,11 +111,38 @@
           "named": true
         },
         {
+          "type": "keyword_literal",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
         {
           "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_loop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "statement",
           "named": true
         }
       ]
@@ -119,6 +156,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "as",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -178,6 +219,16 @@
     }
   },
   {
+    "type": "invalid_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "keyword_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "literal",
     "named": true,
     "fields": {},
@@ -198,7 +249,26 @@
           "named": true
         },
         {
+          "type": "invalid_literal",
+          "named": true
+        },
+        {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "for_loop",
           "named": true
         }
       ]
@@ -212,6 +282,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "as",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -320,6 +394,10 @@
           "named": true
         },
         {
+          "type": "loop_statement",
+          "named": true
+        },
+        {
           "type": "print_statement",
           "named": true
         }
@@ -403,6 +481,26 @@
     "named": false
   },
   {
+    "type": "Bool",
+    "named": false
+  },
+  {
+    "type": "Boolean",
+    "named": false
+  },
+  {
+    "type": "Double",
+    "named": false
+  },
+  {
+    "type": "Dynamic",
+    "named": false
+  },
+  {
+    "type": "End For",
+    "named": false
+  },
+  {
     "type": "End Function",
     "named": false
   },
@@ -411,11 +509,59 @@
     "named": false
   },
   {
+    "type": "Float",
+    "named": false
+  },
+  {
+    "type": "For",
+    "named": false
+  },
+  {
     "type": "Function",
     "named": false
   },
   {
+    "type": "Integer",
+    "named": false
+  },
+  {
+    "type": "Interface",
+    "named": false
+  },
+  {
+    "type": "Invalid",
+    "named": false
+  },
+  {
+    "type": "Long",
+    "named": false
+  },
+  {
+    "type": "LongInteger",
+    "named": false
+  },
+  {
+    "type": "Object",
+    "named": false
+  },
+  {
+    "type": "STOP",
+    "named": false
+  },
+  {
+    "type": "Step",
+    "named": false
+  },
+  {
+    "type": "String",
+    "named": false
+  },
+  {
     "type": "Sub",
+    "named": false
+  },
+  {
+    "type": "To",
     "named": false
   },
   {
@@ -427,12 +573,16 @@
     "named": false
   },
   {
+    "type": "bool",
+    "named": false
+  },
+  {
     "type": "boolean",
     "named": false
   },
   {
-    "type": "comment",
-    "named": true
+    "type": "double",
+    "named": false
   },
   {
     "type": "dynamic",
@@ -444,6 +594,10 @@
   },
   {
     "type": "else if",
+    "named": false
+  },
+  {
+    "type": "end for",
     "named": false
   },
   {
@@ -459,6 +613,10 @@
     "named": false
   },
   {
+    "type": "exit",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
@@ -469,6 +627,10 @@
   {
     "type": "float_literal",
     "named": true
+  },
+  {
+    "type": "for",
+    "named": false
   },
   {
     "type": "function",
@@ -491,6 +653,22 @@
     "named": true
   },
   {
+    "type": "interface",
+    "named": false
+  },
+  {
+    "type": "invalid",
+    "named": false
+  },
+  {
+    "type": "long",
+    "named": false
+  },
+  {
+    "type": "longInteger",
+    "named": false
+  },
+  {
     "type": "mod",
     "named": false
   },
@@ -503,6 +681,10 @@
     "named": false
   },
   {
+    "type": "object",
+    "named": false
+  },
+  {
     "type": "or",
     "named": false
   },
@@ -512,6 +694,14 @@
   },
   {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "step",
+    "named": false
+  },
+  {
+    "type": "stop",
     "named": false
   },
   {
@@ -528,6 +718,10 @@
   },
   {
     "type": "then",
+    "named": false
+  },
+  {
+    "type": "to",
     "named": false
   },
   {
