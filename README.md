@@ -9,7 +9,7 @@ This is still a work in progress.  It is a starting point to build out treesitte
 - requires [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 ```lua
-# ~/.config/nvim/init.lua
+-- ~/.config/nvim/init.lua
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.brightscript = {
   install_info = {
@@ -40,10 +40,14 @@ source = { git = "https://github.com/casonadams/tree-sitter-brightscript.git", r
 ### nvim
 
 ```sh
+mkdir -p ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/brightscript
+
 cp queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/brightscript
 ```
 
 ### helix
+
+mkdir -p ~/.config/helix/runtime/queries/brightscript
 
 ```sh
 cp queries/highlights.scm ~/.config/helix/runtime/queries/brightscript/highlights.scm
