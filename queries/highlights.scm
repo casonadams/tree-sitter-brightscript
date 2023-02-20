@@ -1,6 +1,33 @@
-[ "while" "end" "if" "then" "else" "do" ] @keyword
-(num) @number
-(id) @variable.builtin
-[ "*" "+" "-" "=" ":=" "~" ] @operator
+[
+  "print"
+  "if"
+  "then"
+  "else"
+  "else if"
+  "end if"
+  "return"
+] @keyword
+
+[
+  "as"
+  "As"
+] @constant
+
+[
+  "sub"
+  "Sub"
+  "end sub"
+  "End Sub"
+  "function"
+  "Function"
+  "end function"
+  "End Function"
+] @function
+
+(invalid) @constant
 (comment) @comment
-(raw_string) @string
+(binary_expression) @operator
+(integer_literal) @number
+(string_literal) @string
+(boolean_literal) @boolean
+(identifier) @variable

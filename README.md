@@ -4,9 +4,19 @@ This is still a work in progress.  It is a starting point to build out treesitte
 
 ## setup
 
+**Note** this type of setup is only needed until this tree-sitter project can make its way into nvim-treesitter
+
 ### nvim
 
 - requires [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- filetype must be `brs`
+
+```lua
+-- ~/.config/nvim/ftdetect/brs.lua
+local api = vim.api
+
+api.nvim_command("autocmd BufNewFile,BufFilePost,BufRead *.brs setfiletype brs")
+```
 
 ```lua
 -- ~/.config/nvim/init.lua
@@ -42,7 +52,7 @@ source = { git = "https://github.com/casonadams/tree-sitter-brightscript.git", r
 ```sh
 mkdir -p ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/brightscript
 
-cp queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/brightscript
+ln -s $(pwd)/queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/brightscript
 ```
 
 ### helix
@@ -50,5 +60,5 @@ cp queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/nvim-treesi
 mkdir -p ~/.config/helix/runtime/queries/brightscript
 
 ```sh
-cp queries/highlights.scm ~/.config/helix/runtime/queries/brightscript/highlights.scm
+ln -s $(pwd)/queries/highlights.scm ~/.config/helix/runtime/queries/brightscript/highlights.scm
 ```
