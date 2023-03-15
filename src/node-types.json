@@ -103,6 +103,10 @@
       "required": true,
       "types": [
         {
+          "type": "any",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -567,6 +571,10 @@
   {
     "type": "and",
     "named": false
+  },
+  {
+    "type": "any",
+    "named": true
   },
   {
     "type": "as",
