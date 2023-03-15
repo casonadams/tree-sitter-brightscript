@@ -747,10 +747,6 @@
         {
           "type": "SYMBOL",
           "name": "unary_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "any"
         }
       ]
     },
@@ -1122,10 +1118,6 @@
     "identifier": {
       "type": "PATTERN",
       "value": "[A-Za-z_]+"
-    },
-    "any": {
-      "type": "PATTERN",
-      "value": ".*"
     },
     "newline": {
       "type": "PATTERN",

@@ -1,7 +1,7 @@
 ; good ref file:
 ; https://github.com/nvim-treesitter/nvim-treesitter/blob/master/queries/python/highlights.scm
 
-["(" ")"] @punctuation.bracket
+["(" ")" "{" "}"] @punctuation.bracket
 
 ; TODO: support Object, and arrays
 ; ["(" ")" "[" "]" "{" "}"] @punctuation.bracket

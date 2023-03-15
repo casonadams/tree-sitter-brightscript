@@ -164,8 +164,7 @@ module.exports = grammar({
       $.literal,
       $.binary_expression,
       $.keyword_literal,
-      $.unary_expression,
-      $.any
+      $.unary_expression
     ),
 
     binary_expression: $ => prec.left(choice(
@@ -212,7 +211,6 @@ module.exports = grammar({
     string_literal: $ => token(/"([^"\\]|\\.)*"/),
     boolean_literal: $ => choice('true', 'false'),
     identifier: $ => /[A-Za-z_]+/,
-    any: $ => /.*/,
     newline: $ => /\r?\n/,
     comment: $ => choice(
       token(/'.*/),
