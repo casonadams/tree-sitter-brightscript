@@ -57,8 +57,17 @@ ln -s $(pwd)/queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/n
 
 ### helix
 
+**Requires that helix has been clone and the runtime/ dir has been symlinked to ~/.config/helix/runtime**
+
 mkdir -p ~/.config/helix/runtime/queries/brightscript
 
 ```sh
 ln -s $(pwd)/queries/highlights.scm ~/.config/helix/runtime/queries/brightscript/highlights.scm
+```
+
+- Then build an and fetch
+
+```sh
+hx -g fetch
+hx -g build
 ```
