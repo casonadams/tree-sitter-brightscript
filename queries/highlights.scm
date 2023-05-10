@@ -2,6 +2,7 @@
 ; https://github.com/nvim-treesitter/nvim-treesitter/blob/master/queries/python/highlights.scm
 
 ["(" ")"] @punctuation.bracket
+["{" "}"] @punctuation.bracket
 
 ; TODO: support Object, and arrays
 ; ["(" ")" "[" "]" "{" "}"] @punctuation.bracket
@@ -19,8 +20,8 @@
 ] @keyword
 
 [
-  "for"
-  "For"
+  "for each"
+  "For Each"
   "End For"
   "end for"
 ] @repeat
@@ -34,7 +35,7 @@
   "Function"
   "end function"
   "End Function"
-] @function
+] @keyword
 
 [
   "bool"
@@ -65,12 +66,35 @@
   "To"
 ] @type.builtin
 
+[
+ "="
+ ">"
+ "*"
+ "+"
+ "-"
+ "/"
+ "<"
+ "<="
+ "<>"
+ "="
+ ">"
+ ">="
+ "and"
+ "mod"
+ "not"
+ "or"
+] @operator
+
+[
+ "in"
+ "In"
+] @constant
 
 (as) @constant
 (invalid_literal) @constant
 (comment) @comment
-(binary_expression) @operator
 (integer_literal) @number
 (string_literal) @string
 (boolean_literal) @boolean
 (identifier) @variable
+(type) @type
