@@ -57,11 +57,17 @@ ln -s $(pwd)/queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/n
 
 ### helix
 
-**Requires that helix has been clone and the runtime/ dir has been symlinked to ~/.config/helix/runtime**
-
-mkdir -p ~/.config/helix/runtime/queries/brightscript
+**Requires that helix has been cloned and the runtime/ dir has been copied to ~/.config/helix/runtime**
 
 ```sh
+# from helix root dir
+mkdir -p ~/.config/helix
+cp -a runtime ~/.config/helix/
+```
+
+```sh
+# from tree-sitter-brightscript root dir
+mkdir -p ~/.config/helix/runtime/queries/brightscript
 ln -s $(pwd)/queries/highlights.scm ~/.config/helix/runtime/queries/brightscript/highlights.scm
 ```
 
