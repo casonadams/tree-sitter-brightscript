@@ -104,29 +104,33 @@ module.exports = grammar({
         ),
 
         print_statement: $ => seq(
-            'print',
-            commaSep1($.expression),
+            choice(
+                "print",
+                "Print",
+                "?",
+            ),
+            $.expression,
         ),
 
         if_statement: $ => seq(
-            'if',
+            choice('if', "If"),
             $.expression,
-            'then',
+            choice('then', "Then"),
             repeat($.statement),
             optional(choice($.else_if_statement, $.else_statement)),
-            'end if',
+            choice('end if', "End If"),
         ),
 
         else_if_statement: $ => seq(
-            'else if',
+            choice('else if', "Else If"),
             $.expression,
-            'then',
+            choice('then', "Then"),
             repeat($.statement),
             optional($.else_statement)
         ),
 
         else_statement: $ => seq(
-            'else',
+            choice('else', 'Else'),
             repeat($.statement)
         ),
 
@@ -212,7 +216,7 @@ module.exports = grammar({
         identifier: $ => /[A-Za-z_]+/,
         map: $ => seq(
             '{',
-                optional($.mapPairList),
+            optional($.mapPairList),
             '}'
         ),
         mapPairList: $ => seq(

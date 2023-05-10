@@ -9,14 +9,22 @@
 
 [
   "print"
+  "Print"
+  "?"
   "if"
   "then"
   "else"
   "else if"
   "end if"
+  "If"
+  "Then"
+  "Else"
+  "Else If"
+  "End If"
   "return"
   "exit"
   "stop"
+  "STOP"
 ] @keyword
 
 [
