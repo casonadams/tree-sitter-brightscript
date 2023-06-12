@@ -3,6 +3,7 @@
 
 ["(" ")"] @punctuation.bracket
 ["{" "}"] @punctuation.bracket
+["[" "]"] @punctuation.bracket
 
 ; TODO: support Object, and arrays
 ; ["(" ")" "[" "]" "{" "}"] @punctuation.bracket
@@ -21,6 +22,18 @@
   "Else"
   "Else If"
   "End If"
+  "For Each"
+  "End For"
+  "for each"
+  "end for"
+  "while"
+  "end while"
+  "While"
+  "End While"
+  "continue for"
+  "Continue For"
+  "Continue While"
+  "continue while"
   "return"
   "exit"
   "stop"
@@ -73,6 +86,8 @@
  "*"
  "+"
  "-"
+ "--"
+ "++"
  "/"
  "<"
  "<="
@@ -86,17 +101,12 @@
  "or"
 ] @operator
 
-[
- "in"
- "In"
-] @constant
-
-(as) @constant
+(as) @keyword
+(in) @keyword
 (invalid_literal) @constant
 (comment) @comment
 (integer_literal) @number
 (string_literal) @string
 (boolean_literal) @boolean
 (identifier) @variable
-(loop_statement) @repeat
 (type) @type

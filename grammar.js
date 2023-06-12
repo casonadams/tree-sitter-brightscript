@@ -90,7 +90,7 @@ module.exports = grammar({
             "as"
         ),
 
-        _in: $ => choice(
+        in: $ => choice(
             "In",
             "in"
         ),
@@ -100,7 +100,7 @@ module.exports = grammar({
             $.print_statement,
             $.if_statement,
             $.loop_statement,
-            $.expression
+            $.expression,
         ),
 
         print_statement: $ => seq(
@@ -116,7 +116,7 @@ module.exports = grammar({
             choice('if', "If"),
             $.expression,
             choice('then', "Then"),
-            repeat($.statement),
+            repeat(choice($.statement, $.continue_statement)),
             optional(choice($.else_if_statement, $.else_statement)),
             choice('end if', "End If"),
         ),
@@ -125,13 +125,13 @@ module.exports = grammar({
             choice('else if', "Else If"),
             $.expression,
             choice('then', "Then"),
-            repeat($.statement),
+            repeat(choice($.statement, $.continue_statement)),
             optional($.else_statement)
         ),
 
         else_statement: $ => seq(
             choice('else', 'Else'),
-            repeat($.statement)
+            repeat(choice($.statement, $.continue_statement)),
         ),
 
         loop_statement: $ => choice(
@@ -162,7 +162,7 @@ module.exports = grammar({
         for_each_loop: $ => seq(
             choice('for each', 'For Each'),
             $.identifier,
-            choice('in', 'In'),
+            $.in,
             $.identifier,
             repeat($.statement),
             choice('end for', 'End For'),
@@ -191,7 +191,9 @@ module.exports = grammar({
             seq($.expression, 'and', $.expression),
             seq($.expression, 'or', $.expression),
             seq($.expression, 'not', $.expression),
-            seq($.expression, 'mod', $.expression)
+            seq($.expression, 'mod', $.expression),
+            seq($.expression, '++'),
+            seq($.expression, '--'),
         )),
 
         unary_expression: $ => prec.left(choice(
@@ -206,6 +208,7 @@ module.exports = grammar({
             $.boolean_literal,
             $.invalid_literal,
             $.map,
+            $.array,
         ),
 
         return_statement: $ => seq(
@@ -214,6 +217,15 @@ module.exports = grammar({
                 repeat(
                     $.expression
                 )
+            )
+        ),
+
+        continue_statement: $ => seq(
+            choice(
+                "continue for",
+                "Continue For",
+                "continue while",
+                "Continue While",
             )
         ),
 
@@ -241,6 +253,12 @@ module.exports = grammar({
                 $.subroutine_declaration,
                 $.literal,
             ),
+        ),
+        array: $ => seq(
+            '[',
+            optional($.literal),
+            optional(repeat(seq(',', $.literal))),
+            ']'
         ),
         comment: $ => choice(
             token(/'.*/),
