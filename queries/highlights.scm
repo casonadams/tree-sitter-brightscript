@@ -28,13 +28,6 @@
 ] @keyword
 
 [
-  "for each"
-  "For Each"
-  "End For"
-  "end for"
-] @repeat
-
-[
   "sub"
   "Sub"
   "end sub"
@@ -105,4 +98,5 @@
 (string_literal) @string
 (boolean_literal) @boolean
 (identifier) @variable
+(loop_statement) @repeat
 (type) @type

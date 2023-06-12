@@ -137,6 +137,14 @@ module.exports = grammar({
         loop_statement: $ => choice(
             $.for_loop,
             $.for_each_loop,
+            $.while_loop,
+        ),
+
+        while_loop: $ => seq(
+            choice('while', 'While'),
+            $.expression,
+            repeat($.statement),
+            choice('end while', 'End While'),
         ),
 
         for_loop: $ => seq(

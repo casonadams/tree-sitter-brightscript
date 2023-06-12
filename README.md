@@ -52,7 +52,11 @@ source = { git = "https://github.com/casonadams/tree-sitter-brightscript.git", r
 ```sh
 mkdir -p ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/brightscript
 
+# packer
 ln -s $(pwd)/queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/brightscript
+
+# lazy
+ln -sf $(pwd)/highlights.scm ~/.local/share/nvim/lazy/nvim-treesitter/queries/brightscript/highlights.scm
 ```
 
 ### helix

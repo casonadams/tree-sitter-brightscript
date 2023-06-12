@@ -605,6 +605,10 @@
     "named": false
   },
   {
+    "type": "End While",
+    "named": false
+  },
+  {
     "type": "Float",
     "named": false
   },
@@ -681,6 +685,10 @@
     "named": false
   },
   {
+    "type": "While",
+    "named": false
+  },
+  {
     "type": "and",
     "named": false
   },
@@ -726,6 +734,10 @@
   },
   {
     "type": "end sub",
+    "named": false
+  },
+  {
+    "type": "end while",
     "named": false
   },
   {
@@ -846,6 +858,10 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "while",
     "named": false
   },
   {
